@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Livewire::setScriptRoute(function ($handle){
-            return Route::post('todo/public/livewire', $handle)->middleware('web');
+            return Route::post('todo/public/livewire/livewire.js', $handle)->middleware('web');
         });
 
     }
