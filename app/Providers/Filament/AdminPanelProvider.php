@@ -35,7 +35,7 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => Color::Green,
             ])
             ->brandLogo(asset('assets/images/exap.jpeg'))
-            ->brandLogoHeight('2rem')
+            ->brandLogoHeight('3rem')
             ->favicon(asset('assets/images/exap.jpeg'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
