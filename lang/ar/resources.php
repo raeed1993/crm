@@ -10,4 +10,6 @@ return [
     'Companies' => 'الشركات',
     'Company' => 'شركة',
     'Contract duration' => 'مدة العقد',
+    'title' => 'عنوان',
+    'desc' => 'التوصيف',
 ];

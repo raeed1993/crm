@@ -2,6 +2,9 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Resources\StatisticsResource\Widgets\StatsOverview;
+use App\Filament\Resources\TaskResource\Widgets\TasksChart;
+use App\Filament\Resources\WidgetsResource\Widgets\PublicViewOverview;
 use Filament\FontProviders\GoogleFontProvider;
 use Filament\FontProviders\LocalFontProvider;
 use Filament\Http\Middleware\Authenticate;
@@ -26,13 +29,15 @@ class AdminPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
+
             ->default()
+            ->topNavigation()
             ->id('admin')
             ->path('admin')
             ->login()
             ->font('Noto Kufi Arabic')
             ->colors([
-                'primary' => Color::Green,
+                'primary' => Color::hex('#5f942e'),
             ])
             ->brandLogo(asset('assets/images/exap.jpeg'))
             ->brandLogoHeight('3rem')
@@ -44,7 +49,10 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
+//                Widgets\AccountWidget::class,
+                StatsOverview::class,
+                PublicViewOverview::class,
+                TasksChart::class,
 //                Widgets\FilamentInfoWidget::class,
             ])
             ->middleware([
