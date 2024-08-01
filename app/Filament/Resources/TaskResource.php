@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\TaskResource\Pages;
 use App\Filament\Resources\TaskResource\RelationManagers;
+use App\Models\Project;
 use App\Models\Task;
 use App\Models\User;
 use Filament\Forms;
@@ -55,16 +56,20 @@ class TaskResource extends Resource
                     ->required(),
                 Forms\Components\DatePicker::make('end_date')
                     ->label('تنتهي المهمة في تاريخ'),
-                Forms\Components\TextInput::make('project_id')
+                Forms\Components\Select::make('project_id')
                     ->label('المشروع')
                     ->required()
-                    ->numeric(),
+                    ->options(Project::all()->pluck('name', 'id')),
 //                Forms\Components\TextInput::make('user_id')
 //                    ->numeric(),
-                Forms\Components\TextInput::make('priority')
+                Forms\Components\Select::make('priority')
                     ->label('الأولوية')
                     ->required()
-                    ->numeric(),
+                    ->options([
+                        '0' => 'مهم',
+                        '1' => 'غير مهم',
+
+                    ]),
                 Forms\Components\TextInput::make('duration')
                     ->label('المدة')
                     ->numeric(),
@@ -115,7 +120,7 @@ class TaskResource extends Resource
 //                    ->sortable(),
                 Tables\Columns\TextColumn::make('priority')
                     ->badge()
-                    ->color(fn (string $state): string => match ($state) {
+                    ->color(fn(string $state): string => match ($state) {
                         '0' => 'gray',
                         '1' => 'warning',
                         '2' => 'success',
@@ -145,7 +150,7 @@ class TaskResource extends Resource
                 Tables\Actions\Action::make('assignmentToUser')
                     ->label('اسناد للموظفين')
                     ->icon('heroicon-o-user-plus')
-                    ->fillForm(fn (Task $record): array => [
+                    ->fillForm(fn(Task $record): array => [
                         'user_id' => $record->user_id,
                     ])
                     ->form([
@@ -158,8 +163,8 @@ class TaskResource extends Resource
                         $record->user_id = $data['user_id'];
                         $record->save();
                     })
-                    ->visible(function ( Task $record): bool {
-                       return is_null($record->user_id) ;
+                    ->visible(function (Task $record): bool {
+                        return is_null($record->user_id);
                     }),
 
             ])
