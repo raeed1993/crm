@@ -8,10 +8,11 @@ use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements FilamentUser
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -50,6 +51,17 @@ class User extends Authenticatable implements FilamentUser
             'password' => 'hashed',
         ];
     }
+
+    public static $ROLES = [
+        0 => 'user',
+        1 => 'admin',
+        2 => 'company'
+    ];
+    public static $ROLESLABLE = [
+        'user' => 0,
+        'admin' => 1,
+        'company' => 2
+    ];
 
     public function canAccessPanel(Panel $panel): bool
     {

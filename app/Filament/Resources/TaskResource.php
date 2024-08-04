@@ -67,8 +67,7 @@ class TaskResource extends Resource
                     ->required()
                     ->options([
                         '0' => 'مهم',
-                        '1' => 'غير مهم',
-
+                        '1' => 'غير مهم'
                     ]),
                 Forms\Components\TextInput::make('duration')
                     ->label('المدة')
