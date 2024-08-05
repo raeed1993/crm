@@ -14,6 +14,8 @@ Route::prefix('auth')->group(function () {
     Route::post('login', [AuthController::class, 'login']);
 });
 
-Route::prefix('admin')->group(function () {
-    Route::resource('company', AdminCompanyController::class);
-});
+Route::prefix('admin')
+    ->middleware('auth:sanctum')
+    ->group(function () {
+        Route::resource('company', AdminCompanyController::class);
+    });
