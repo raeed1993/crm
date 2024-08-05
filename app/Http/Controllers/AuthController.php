@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BL\IServices\IAuthService;
-use App\Http\Requests\LoginRequest;
+use App\Http\Requests\Auth\LoginRequest;
 
 class AuthController extends Controller
 {
