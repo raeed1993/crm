@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
-})->middleware('auth:api');
+})->middleware('auth:sanctum');
 
 Route::prefix('auth')->group(function () {
     Route::post('login', [AuthController::class, 'login']);
 });
 
 Route::prefix('admin')
-    ->middleware('auth:api')
+    ->middleware('auth:sanctum')
     ->group(function () {
         Route::resource('company', AdminCompanyController::class);
     });
