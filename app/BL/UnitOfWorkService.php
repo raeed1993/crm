@@ -17,14 +17,6 @@ class UnitOfWorkService
 
     protected function connectDB($fn)
     {
-        try {
-            DB::beginTransaction();
-            $data = $fn;
-            DB::commit();
-            return $data;
-        } catch (\Exception $exception) {
-            DB::rollBack();
-            return $exception->getMessage();
-        }
+        return connectDB($fn);
     }
 }

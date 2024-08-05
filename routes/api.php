@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Admin\AdminCompanyController;
+use App\Http\Controllers\Admin\AdminImportController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,4 +19,5 @@ Route::prefix('admin')
     ->middleware('auth:sanctum')
     ->group(function () {
         Route::resource('company', AdminCompanyController::class);
+        Route::post('import-company', [AdminImportController::class, 'importCompanies']);
     });

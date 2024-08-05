@@ -1,6 +1,8 @@
 <?php
 
 
+use Illuminate\Support\Facades\DB;
+
 if (!function_exists('oK')) {
     function oK($data = null, $message = null)
     {
@@ -19,6 +21,20 @@ if (!function_exists('badRequest')) {
             'status' => false,
             'message' => $message ?? 'error',
         ], 400);
+    }
+}
+if (!function_exists('connectDB')) {
+    function connectDB($fn)
+    {
+        try {
+            DB::beginTransaction();
+            $data = $fn;
+            DB::commit();
+            return $data;
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            return $exception->getMessage();
+        }
     }
 }
 
