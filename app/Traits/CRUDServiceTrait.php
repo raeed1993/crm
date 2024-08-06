@@ -24,9 +24,9 @@ trait CRUDServiceTrait
         return $this->connectDB($this->getRepository()->update($data, $id));
     }
 
-    public function destroy($id)
+    public function delete($id)
     {
-        return $this->connectDB($this->getRepository()->destroy($id));
+        return $this->connectDB($this->getRepository()->delete($id));
     }
 
     protected function getRepository()
