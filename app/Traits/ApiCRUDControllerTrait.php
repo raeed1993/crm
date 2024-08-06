@@ -55,7 +55,7 @@ trait ApiCRUDControllerTrait
     public function destroy($id)
     {
         try {
-            $this->getService()->destroy($id);
+            $this->getService()->delete($id);
             return oK(null, 'created successfully');
         } catch (\Exception $exception) {
             return badRequest(null, $exception->getMessage());
