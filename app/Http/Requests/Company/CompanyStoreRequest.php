@@ -22,8 +22,8 @@ class CompanyStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'email', 'exists:users,email'],
-            'phone_number' => ['required', 'email', 'exists:users,email'],
+            'name' => ['required'],
+            'phone_number' => ['required'],
             'email' => ['required', 'email', 'unique:users,email'],
             'register_number' => ['required'],
             'address' => ['required'],
