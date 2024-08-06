@@ -24,7 +24,7 @@ class CompanyStoreRequest extends FormRequest
         return [
             'name' => ['required'],
             'phone_number' => ['required'],
-            'email' => ['required', 'email', 'unique:users,email'],
+            'email' => ['required', 'email', 'unique:companies,email'],
             'register_number' => ['required'],
             'address' => ['required'],
             'contract_duration' => ['required', 'numeric'],
