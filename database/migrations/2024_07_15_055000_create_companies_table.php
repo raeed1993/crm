@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('email');
             $table->string('register_number');
             $table->text('address');
-            $table->timestamp('contract_duration');
+            $table->unsignedInteger('contract_duration');
             $table->text('scope');
             $table->unsignedInteger('contract_type');
             $table->unsignedInteger('status');
