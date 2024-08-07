@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\BL\IServices\IImportService;
 use App\Http\Controllers\Controller;
 use App\Import\CompanyImport;
+use App\Import\UserImport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -21,6 +22,26 @@ class AdminImportController extends Controller
     {
         //validate
         Excel::import(new CompanyImport, $request->file('companies'));
+
+        //import
+        $arrayIndexes = $this->service->importCompanies($request);
+        if (count($arrayIndexes['failArray']['message']) > 0)
+            return response()->json([
+                'data' => $arrayIndexes,
+                'message' => 'there are some rows not added',
+                'status' => false,
+            ]);
+        return response()->json([
+            'data' => $arrayIndexes,
+            'message' => 'success',
+            'status' => true,
+        ]);
+    }
+
+    public function importUsers(Request $request)
+    {
+        //validate
+        Excel::import(new UserImport, $request->file('users'));
 
         //import
         $arrayIndexes = $this->service->importCompanies($request);

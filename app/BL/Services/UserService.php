@@ -4,11 +4,12 @@ namespace App\BL\Services;
 
 use App\BL\IServices\IAuthService;
 use App\BL\IServices\ICompanyService;
+use App\BL\IServices\IUserService;
 use App\BL\UnitOfWorkService;
 use App\Traits\CRUDServiceTrait;
 use Illuminate\Support\Facades\DB;
 
-class CompanyService extends UnitOfWorkService implements ICompanyService
+class UserService extends UnitOfWorkService implements IUserService
 {
     use CRUDServiceTrait;
 
@@ -19,8 +20,4 @@ class CompanyService extends UnitOfWorkService implements ICompanyService
         $this->interface = $this->unitOfWork()->getCompanyRepository();
     }
 
-    public function list()
-    {
-        return $this->connectDB($this->getRepository()->list());
-    }
 }

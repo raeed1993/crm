@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\Admin\AdminCompanyController;
 use App\Http\Controllers\Admin\AdminImportController;
+use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,5 +20,10 @@ Route::prefix('admin')
     ->middleware('auth:sanctum')
     ->group(function () {
         Route::resource('company', AdminCompanyController::class);
+        Route::resource('user', AdminUserController::class);
+        Route::prefix('company')->group(function () {
+            Route::get('list', [AdminCompanyController::class, 'companies']);
+        });
         Route::post('import-company', [AdminImportController::class, 'importCompanies']);
+        Route::post('import-user', [AdminImportController::class, 'importUsers']);
     });
