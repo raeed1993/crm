@@ -18,14 +18,14 @@ class CompanyImport implements ToCollection, WithHeadingRow
 
         Validator::make($rows->toArray(), [
             '*.name' => ['required'],
-            '*.phone_number' => ['required', 'string'],
-            '*.email' => ['required', 'string'],
-            '*.register_number' => ['nullable', 'string'],
-            '*.address' => ['nullable', 'string'],
-            '*.contract_duration' => ['nullable', 'string'],
-            '*.scope' => ['nullable', 'string'],
-            '*.contract_type' => ['nullable', 'string'],
-            '*.status' => ['nullable', 'string'],
+            '*.phone_number' => ['required'],
+            '*.email' => ['required', 'email'],
+            '*.register_number' => ['nullable'],
+            '*.address' => ['nullable'],
+            '*.contract_duration' => ['nullable'],
+            '*.scope' => ['nullable'],
+            '*.contract_type' => ['nullable'],
+            '*.status' => ['nullable'],
         ])->validate();
     }
 }
