@@ -50,7 +50,7 @@ class ImportRepository implements IImportRepository
         ini_set('max_execution_time', 180);
         $failArray = ['item' => [], 'message' => []];
         $successArray = ['item' => [], 'message' => []];
-        foreach ($data as $index => $row) {
+        foreach ($data[0] as $index => $row) {
             try {
                 DB::beginTransaction();
                 $company = new User();

@@ -37,7 +37,7 @@ trait CRUDGenericRepositoryTraits
 
     public function delete($id)
     {
-        return $this->getModel()->delete($id);
+        return $this->find($id)->delete();
     }
 
     public function find($id)
