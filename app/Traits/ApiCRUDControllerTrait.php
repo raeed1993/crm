@@ -52,11 +52,11 @@ trait ApiCRUDControllerTrait
         }
     }
 
-    public function destroy($id)
+    public function destroy($ids)
     {
         try {
-            $this->getService()->delete($id);
-            return oK(null, 'created successfully');
+            $this->getService()->delete($ids);
+            return oK(null, 'deleted successfully');
         } catch (\Exception $exception) {
             return badRequest(null, $exception->getMessage());
 
