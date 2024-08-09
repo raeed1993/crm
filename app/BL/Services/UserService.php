@@ -17,7 +17,7 @@ class UserService extends UnitOfWorkService implements IUserService
 
     public function __construct()
     {
-        $this->interface = $this->unitOfWork()->getCompanyRepository();
+        $this->interface = $this->unitOfWork()->getUserRepository();
     }
 
 }
