@@ -17,11 +17,11 @@ class UserImport implements ToCollection, WithHeadingRow
     {
         Validator::make($rows->toArray(), [
             '*.name' => ['required'],
-            '*.phone_number' => ['required', 'string'],
-            '*.email' => ['required', 'string'],
-            '*.national_id' => ['required', 'string'],
-            '*.company_id' => ['nullable', 'string'],
-            '*.password' => ['required', 'string'],
+            '*.phone_number' => ['required'],
+            '*.email' => ['required', 'email'],
+            '*.national_id' => ['required'],
+            '*.company_id' => ['nullable'],
+            '*.password' => ['required'],
 
         ])->validate();
     }

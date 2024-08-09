@@ -24,14 +24,14 @@ class ProjectStoreRequest extends FormRequest
         return [
             'name' => ['required'],
             'contract_duration' => ['required'],
-            'status' => ['required', 'email'],
+            'status' => ['required'],
             'start_date' => ['required'],
-            'end_date' => ['nullable', 'numeric'],
-            'type' => ['required', 'numeric'],
+            'end_date' => ['nullable', 'after:start_date'],
+            'type' => ['required'],
             'desc' => ['required'],
             'priority' => ['required'],
-            'test_url' => ['required'],
-            'real_url' => ['required'],
+            'test_url' => ['nullable'],
+            'real_url' => ['nullable'],
         ];
     }
 }
