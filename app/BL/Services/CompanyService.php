@@ -18,9 +18,4 @@ class CompanyService extends UnitOfWorkService implements ICompanyService
     {
         $this->interface = $this->unitOfWork()->getCompanyRepository();
     }
-
-    public function list()
-    {
-        return $this->connectDB($this->getRepository()->list());
-    }
 }

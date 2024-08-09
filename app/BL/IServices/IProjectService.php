@@ -2,7 +2,7 @@
 
 namespace App\BL\IServices;
 
-interface ICompanyService
+interface IProjectService
 {
 
 }

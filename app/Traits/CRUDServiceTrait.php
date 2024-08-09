@@ -9,6 +9,10 @@ trait CRUDServiceTrait
         return $this->connectDB($this->getRepository()->index());
     }
 
+    public function list()
+    {
+        return $this->connectDB($this->getRepository()->list());
+    }
     public function find($id)
     {
         return $this->connectDB($this->getRepository()->find($id));

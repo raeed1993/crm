@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\Admin\AdminCompanyController;
 use App\Http\Controllers\Admin\AdminImportController;
+use App\Http\Controllers\Admin\AdminProjectController;
 use App\Http\Controllers\Admin\AdminTaskController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\AuthController;
@@ -23,6 +24,11 @@ Route::prefix('admin')
         Route::resource('company', AdminCompanyController::class);
         Route::resource('user', AdminUserController::class);
         Route::resource('task', AdminTaskController::class);
+        Route::resource('project', AdminProjectController::class);
+
+        Route::prefix('project')->group(function () {
+            Route::get('list', [AdminProjectController::class, 'projects']);
+        });
 
         Route::prefix('company')->group(function () {
             Route::get('list', [AdminCompanyController::class, 'companies']);
