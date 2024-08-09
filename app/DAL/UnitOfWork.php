@@ -5,10 +5,12 @@ namespace App\DAL;
 use App\DAL\IRepositories\IAuthRepository;
 use App\DAL\IRepositories\ICompanyRepository;
 use App\DAL\IRepositories\IImportRepository;
+use App\DAL\IRepositories\ITaskRepository;
 use App\DAL\IRepositories\IUserRepository;
 use App\DAL\Repositories\AuthRepository;
 use App\DAL\Repositories\CompanyRepository;
 use App\DAL\Repositories\ImportRepository;
+use App\DAL\Repositories\TaskRepository;
 use App\DAL\Repositories\UserRepository;
 
 class UnitOfWork implements IUnitOfWork
@@ -17,6 +19,7 @@ class UnitOfWork implements IUnitOfWork
     private ICompanyRepository $companyRepository;
     private IImportRepository $importRepository;
     private IUserRepository $userRepository;
+    private ITaskRepository $taskRepository;
 
     public function getAuthRepository(): IAuthRepository
     {
@@ -36,5 +39,10 @@ class UnitOfWork implements IUnitOfWork
     public function getUserRepository(): IUserRepository
     {
         return $this->userRepository ??= new UserRepository();
+    }
+
+    public function getTaskRepository(): ITaskRepository
+    {
+        return $this->taskRepository ??= new TaskRepository();
     }
 }
