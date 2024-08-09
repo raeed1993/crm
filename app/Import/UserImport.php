@@ -19,9 +19,9 @@ class UserImport implements ToCollection, WithHeadingRow
             '*.name' => ['required'],
             '*.phone_number' => ['required'],
             '*.email' => ['required', 'email'],
-//            '*.national_id' => ['required'],
+            '*.national_id' => ['required'],
             '*.company_id' => ['nullable'],
-//            '*.password' => ['required'],
+            '*.password' => ['required'],
         ])->validate();
     }
 }

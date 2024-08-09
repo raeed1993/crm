@@ -44,7 +44,7 @@ class AdminImportController extends Controller
         Excel::import(new UserImport, $request->file('users'));
 
         //import
-        $arrayIndexes = $this->service->importCompanies($request);
+        $arrayIndexes = $this->service->importUsers($request);
         if (count($arrayIndexes['failArray']['message']) > 0)
             return response()->json([
                 'data' => $arrayIndexes,
