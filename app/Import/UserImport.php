@@ -15,15 +15,12 @@ class UserImport implements ToCollection, WithHeadingRow
 
     public function collection(Collection $rows)
     {
-
         Validator::make($rows->toArray(), [
-
             '*.name' => ['required'],
             '*.phone_number' => ['required', 'string'],
             '*.email' => ['required', 'string'],
             '*.national_id' => ['required', 'string'],
             '*.company_id' => ['nullable', 'string'],
-            '*.role' => ['required', 'string'],
             '*.password' => ['required', 'string'],
 
         ])->validate();

@@ -59,7 +59,7 @@ class ImportRepository implements IImportRepository
                 $company->phone_number = $row['phone_number'];
                 $company->national_id = $row['national_id'];
                 $company->company_id = $row['company_id'];
-                $company->role = $row['role'];
+                $company->role = 0;
                 $company->password = $row['password'];
 
                 if ($company->save()) {
