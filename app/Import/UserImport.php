@@ -15,6 +15,7 @@ class UserImport implements ToCollection, WithHeadingRow
 
     public function collection(Collection $rows)
     {
+        dd($rows->toArray());
         Validator::make($rows->toArray(), [
             '*.name' => ['required'],
             '*.phone_number' => ['required'],
@@ -22,7 +23,6 @@ class UserImport implements ToCollection, WithHeadingRow
             '*.national_id' => ['required'],
             '*.company_id' => ['nullable'],
             '*.password' => ['required'],
-
         ])->validate();
     }
 }
