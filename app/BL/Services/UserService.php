@@ -20,4 +20,8 @@ class UserService extends UnitOfWorkService implements IUserService
         $this->interface = $this->unitOfWork()->getUserRepository();
     }
 
+    public function employees()
+    {
+        return $this->connectDB($this->getRepository()->index());
+    }
 }
