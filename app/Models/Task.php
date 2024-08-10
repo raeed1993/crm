@@ -20,8 +20,8 @@ class Task extends Model
         'duration_type',
     ];
     protected $casts = [
-        'start_date' => 'date',
-        'end_date' => 'date'
+        'start_date' => 'datetime',
+        'end_date' => 'datetime'
     ];
 
     public static $STATUS = [

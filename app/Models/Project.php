@@ -20,7 +20,7 @@ class Project extends Model
         'real_url',
     ];
     protected $casts = [
-        'start_date' => 'date',
-        'end_date' => 'date'
+        'start_date' => 'datetime',
+        'end_date' => 'datetime'
     ];
 }
