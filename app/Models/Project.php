@@ -19,4 +19,8 @@ class Project extends Model
         'test_url',
         'real_url',
     ];
+    protected $casts = [
+        'start_date' => 'date',
+        'end_date' => 'date'
+    ];
 }

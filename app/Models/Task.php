@@ -19,7 +19,10 @@ class Task extends Model
         'duration',
         'duration_type',
     ];
-
+    protected $casts = [
+        'start_date' => 'date',
+        'end_date' => 'date'
+    ];
 
     public static $STATUS = [
         0 => 'todo',
