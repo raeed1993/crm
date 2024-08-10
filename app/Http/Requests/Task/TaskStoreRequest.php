@@ -24,7 +24,7 @@ class TaskStoreRequest extends FormRequest
         return [
             'title' => ['required'],
             'desc' => ['required'],
-            'status' => ['required', 'email'],
+            'status' => ['required'],
             'start_date' => ['required'],
             'end_date' => ['nullable', 'numeric'],
             'project_id' => ['required', 'numeric'],
