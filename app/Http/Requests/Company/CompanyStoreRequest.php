@@ -29,8 +29,14 @@ class CompanyStoreRequest extends FormRequest
             'address' => ['required'],
             'contract_duration' => ['required', 'numeric'],
             'scope' => ['required'],
-            'contract_type' => ['required'],
+                'contract_type' => ['required'],
             'status' => ['required', 'numeric'],
+
+            'admin_name' => ['required'],
+            'admin_phone_number' => ['required'],
+            'admin_email' => ['required', 'email'],
+            'admin_national_id' => ['required'],
+            'admin_password' => ['required', 'confirmed'],
         ];
     }
 }
