@@ -12,7 +12,9 @@ class AuthRepository implements IAuthRepository
 
     public function findByEmail($data)
     {
-        $user = User::where('email', $data['email'])->first();
+        $user = User::where('email', $data['email'])
+            ->where('role', User::$ROLESLABLE['admin'])
+            ->first();
         if (!$user || !Hash::check($data['password'], $user->password)) {
             throw ValidationException::withMessages([
                 'email' => ['The provided credentials are incorrect.'],

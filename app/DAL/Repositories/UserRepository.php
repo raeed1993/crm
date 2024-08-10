@@ -15,6 +15,6 @@ class UserRepository implements IUserRepository
 
     public function employees()
     {
-        return $this->getModel()->where('role', 0)->orderBy('id', 'desc')->paginate(20);
+        return $this->getModel()->where('role', User::$ROLESLABLE['user'])->orderBy('id', 'desc')->paginate(20);
     }
 }
