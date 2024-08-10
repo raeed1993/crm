@@ -21,4 +21,9 @@ class AdminUserController extends Controller
     {
         $this->service = $service;
     }
+    public function index()
+    {
+        $list = $this->getService()->employees();
+        return oK($list);
+    }
 }
