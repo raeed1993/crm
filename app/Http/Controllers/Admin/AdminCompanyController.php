@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\BL\IServices\ICompanyService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Company\CompanyStoreRequest;
+use App\Http\Requests\Company\CompanyUpdateRequest;
 use App\Traits\ApiCRUDControllerTrait;
 
 class AdminCompanyController extends Controller
@@ -12,7 +13,7 @@ class AdminCompanyController extends Controller
     use ApiCRUDControllerTrait;
 
     private $store_request = CompanyStoreRequest::class;
-    private $update_request = CompanyStoreRequest::class;
+    private $update_request = CompanyUpdateRequest::class;
 
     public function __construct(ICompanyService $service)
     {

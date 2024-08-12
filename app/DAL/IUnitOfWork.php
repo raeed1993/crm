@@ -3,6 +3,7 @@
 namespace App\DAL;
 
 
+use App\DAL\IRepositories\IAttendanceRepository;
 use App\DAL\IRepositories\IAuthRepository;
 use App\DAL\IRepositories\ICompanyRepository;
 use App\DAL\IRepositories\IImportRepository;
@@ -18,4 +19,5 @@ interface IUnitOfWork
     public function getUserRepository(): IUserRepository;
     public function getTaskRepository(): ITaskRepository;
     public function getProjectRepository(): IProjectRepository;
+    public function getAttendanceRepository(): IAttendanceRepository;
 }

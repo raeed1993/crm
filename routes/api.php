@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\Admin\AdminAttendanceController;
 use App\Http\Controllers\Admin\AdminCompanyController;
 use App\Http\Controllers\Admin\AdminImportController;
 use App\Http\Controllers\Admin\AdminProjectController;
@@ -25,6 +26,7 @@ Route::prefix('admin')
         Route::resource('user', AdminUserController::class);
         Route::resource('task', AdminTaskController::class);
         Route::resource('project', AdminProjectController::class);
+        Route::resource('attendance', AdminAttendanceController::class);
 
         Route::prefix('project')->group(function () {
             Route::get('list', [AdminProjectController::class, 'projects']);
