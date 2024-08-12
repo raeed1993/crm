@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->foreignId('user_id');
             $table->foreignId('task_id')->nullable();
             $table->timestamp('start_time');
-            $table->timestamp('start_time');
+            $table->timestamp('end_time');
             $table->string('duration');
             $table->timestamps();
         });
