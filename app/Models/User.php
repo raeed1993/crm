@@ -73,7 +73,7 @@ class User extends Authenticatable
 
     public function getCompanyObjectAttribute()
     {
-        return $this->company()->first()->pluck('name', 'id');
+        return $this->company;
     }
 
 }
