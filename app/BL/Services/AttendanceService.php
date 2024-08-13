@@ -21,7 +21,7 @@ class AttendanceService extends UnitOfWorkService implements IAttendanceService
     public function store($data)
     {
         $companies = [];
-        foreach ($data as $key => $value) {
+        foreach ($data['items'] as $key => $value) {
             dd($data,$key,$value);
             $companies[] = $this->connectDB($this->getRepository()->store($value));
         }
