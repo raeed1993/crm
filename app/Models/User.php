@@ -62,9 +62,9 @@ class User extends Authenticatable
         'admin' => 1,
         'company' => 2
     ];
-    protected $appends = [
-        'company_object'
-    ];
+//    protected $appends = [
+//        'company_object'
+//    ];
 
     public function company()
     {
@@ -73,7 +73,17 @@ class User extends Authenticatable
 
     public function getCompanyObjectAttribute()
     {
-        return $this->company;
+        $company = $this->company;
+        if (!$company) {
+            return null;
+        }
+        return ['name' => $company->name, 'id' => $company->id];
     }
 
+    public function toArray()
+    {
+        $array = parent::toArray();
+        $array['company'] = $this->getCompanyObjectAttribute();
+        return $array;
+    }
 }
