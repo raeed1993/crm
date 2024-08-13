@@ -62,6 +62,18 @@ class User extends Authenticatable
         'admin' => 1,
         'company' => 2
     ];
+    protected $appends = [
+        'company_object'
+    ];
 
+    public function company()
+    {
+        return $this->hasOne(Company::class, 'id', 'company_id');
+    }
+
+    public function getCompanyObjectAttribute()
+    {
+        return $this->company->pluck('name', 'id');
+    }
 
 }
