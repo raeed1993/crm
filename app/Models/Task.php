@@ -52,4 +52,33 @@ class Task extends Model
         return $this->belongsTo(Project::class, 'project_id', 'id');
     }
 
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    public function getUserObjectAttribute()
+    {
+        $user = $this->user;
+        if (!$user) {
+            return null;
+        }
+        return ['name' => $user->name, 'id' => $user->id];
+    }
+    public function getProjectObjectAttribute()
+    {
+        $project = $this->project;
+        if (!$project) {
+            return null;
+        }
+        return ['name' => $project->name, 'id' => $project->id];
+    }
+
+    public function toArray()
+    {
+        $array = parent::toArray();
+        $array['user'] = $this->getUserObjectAttribute();
+        $array['project'] = $this->getProjectObjectAttribute();
+        return $array;
+    }
 }
