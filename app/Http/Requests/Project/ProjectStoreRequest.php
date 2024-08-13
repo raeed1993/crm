@@ -32,6 +32,7 @@ class ProjectStoreRequest extends FormRequest
             'priority' => ['required'],
             'test_url' => ['nullable'],
             'real_url' => ['nullable'],
+            'company_id' => ['required','numeric'],
         ];
     }
 }
