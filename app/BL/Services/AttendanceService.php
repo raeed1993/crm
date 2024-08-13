@@ -22,7 +22,7 @@ class AttendanceService extends UnitOfWorkService implements IAttendanceService
     {
         $companies = [];
         foreach ($data as $key => $value) {
-            dd($value);
+            dd($data,$key,$value);
             $companies[] = $this->connectDB($this->getRepository()->store($value));
         }
 
